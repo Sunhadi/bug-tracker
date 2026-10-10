@@ -41,8 +41,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Dokumen internal, tidak dipakai aplikasi
+# Dokumen internal, tidak dipakai aplikasi. README tetap ikut.
 *.md
+!README.md
 
 # Data klien: workbook rekap bug dan skrip pembacaannya
 *.xlsx
