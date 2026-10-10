@@ -102,7 +102,7 @@ lib/
   auth.ts                 Sesi JWT, requireUser, requireRole
   reports.ts              Agregasi laporan trend
   reports-bulanan.ts      Query dan pivot laporan bulanan
-  import-mazda.ts         Parser workbook rekap bug
+  import-rekap.ts         Parser workbook rekap bug
   nav.ts                  Struktur navigasi dan ikon
   jira.ts                 Nama dan warna Jira (sumber tunggal)
 db/
@@ -173,7 +173,7 @@ di `db/seed-data/`. Berkas itu **tidak disertakan di repo ini** karena berisi da
 klien. Tanpa berkas tersebut, seed bagian laporan akan berhenti; bagian seed
 admin tetap berjalan.
 
-Letakkan workbook di `db/seed-data/` dengan nama `rekap-bug-mazda.xlsx` untuk
+Letakkan workbook di `db/seed-data/` dengan nama `rekap-bug.xlsx` untuk
 mengaktifkannya. Formatnya mengikuti sheet `Daftar Bug`,
 `Trend Kategori Bug + Tambahan`, dan `Tambahan Scope {Bulan Tahun}`.
 

@@ -1,8 +1,8 @@
 /**
- * Seed laporan bulanan dari workbook Rekap Bug Mazda.
+ * Seed laporan bulanan dari workbook Rekap Bug.
  * Jalankan: npm run db:seed
  *
- * Sumber angka: db/seed-data/rekap-bug-mazda.xlsx
+ * Sumber angka: db/seed-data/rekap-bug.xlsx
  *
  * Isi seed:
  * - Kategori bug beserta warna
@@ -12,7 +12,7 @@
  * - 10 issue Jira yang dikeluarkan dari analisis
  * - 8 permintaan scope tambahan
  *
- * Seed ini idempoten: data proyek "Mazda ALC" dihapus lalu dibuat ulang,
+ * Seed ini idempoten: data proyek "Contoh Proyek" dihapus lalu dibuat ulang,
  * jadi aman dijalankan berkali-kali.
  */
 import bcrypt from "bcryptjs";
@@ -21,13 +21,13 @@ import { drizzle } from "drizzle-orm/postgres-js";
 import { eq, inArray } from "drizzle-orm";
 import * as schema from "./schema.ts";
 import {
-  bacaMazda,
+  bacaRekap,
   KATEGORI_AWAL,
   SEVERITY_DARI_PRIORITY,
-} from "../lib/import-mazda.ts";
+} from "../lib/import-rekap.ts";
 
-const PATH_MAZDA = "db/seed-data/rekap-bug-mazda.xlsx";
-const NAMA_PROYEK = "Mazda ALC";
+const PATH_REKAP = "db/seed-data/rekap-bug.xlsx";
+const NAMA_PROYEK = "Contoh Proyek";
 /** Bulan yang dipakai sebagai data contoh laporan bulanan. */
 const BULAN_LAPORAN = "2026-08";
 
@@ -77,8 +77,8 @@ async function seed() {
     console.log(`Admin sudah ada: ${admin.email} (id=${admin.id})`);
   }
 
-  // ============ 2. Baca workbook Mazda ============
-  const mz = await bacaMazda(PATH_MAZDA);
+  // ============ 2. Baca workbook rekap ============
+  const mz = await bacaRekap(PATH_REKAP);
   console.log(
     `\nWorkbook: ${mz.jira.length} issue Jira, ${mz.item.length} item analisis, ` +
       `${mz.scope.length} request scope, ${mz.jumlahDikecualikan} dikecualikan`

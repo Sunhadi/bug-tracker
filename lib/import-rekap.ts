@@ -1,7 +1,7 @@
 /**
- * Parser workbook Rekap Bug Mazda.
+ * Parser workbook Rekap Bug.
  *
- * Sumber angka laporan bulanan: db/seed-data/rekap-bug-mazda.xlsx
+ * Sumber angka laporan bulanan: db/seed-data/rekap-bug.xlsx
  *
  * Sheet yang dipakai:
  * - "Daftar Bug"                     23 issue Jira lengkap dengan key, PIC, fix version
@@ -69,7 +69,7 @@ export interface RequestScope {
   catatan: string | null;
 }
 
-export interface DataMazda {
+export interface DataRekap {
   jira: IssueJira[];
   item: ItemAnalisis[];
   scope: RequestScope[];
@@ -161,7 +161,7 @@ function normalisasi(s: string): string {
   return s.toLowerCase().replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim();
 }
 
-export async function bacaMazda(path: string): Promise<DataMazda> {
+export async function bacaRekap(path: string): Promise<DataRekap> {
   const wb = new ExcelJS.Workbook();
   await wb.xlsx.readFile(path);
 
